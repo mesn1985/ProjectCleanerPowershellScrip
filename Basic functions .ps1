@@ -1,13 +1,3 @@
-# basic function call, No parameters
-PrintNumberOneToTen
-
-# function call with two parametes
-GetGreeting 'hej' 'verden'
-
-#Caputering functions return value
-$returnedString = GetGreeting 'hej' 'verden'
-Write-Host $returnedString
-
 function PrintNumberOneToTen{
     $intList = [System.Collections.ArrayList]@()
 
@@ -29,4 +19,17 @@ function GetGreeting {
     )
     return $Hello+" "+$World
 }
+
+#Entry
+
+# basic function call, No parameters
+PrintNumberOneToTen
+
+# function call with two parametes
+GetGreeting 'hej' 'verden'
+
+#Caputering functions return value
+$returnedString = GetGreeting 'hej' 'verden'
+Write-Host $returnedString
+
 

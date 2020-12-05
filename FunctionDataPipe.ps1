@@ -1,14 +1,27 @@
-function GetParentFolderPath { 
+
+function SetDefaultPrintToOff(){
+    filter Out-Default {}
+}
+
+function GetScriptFullPath { 
     return $MyInvocation.ScriptName
 }
-function TraverseOneFolderUp {
+function TraverseUpTheFolderHierachy {
     param (
         [Parameter(ValueFromPipeline,Mandatory)]
-        [String]$pathName
+        [String]$pathName,
+
+        [Parameter()]
+        [int] $levelsToTraveseUp
     )
-        return $pathName | Split-Path
+    
+    for([int]$i=0; $i -lt $levelsToTraveseUp; $i++ ){
+        $pathName =  $pathName | Split-Path
+    }
+
+    return $pathName
 }
 
-
-Clear-Host #Just to make the printout clear
-GetParentFolderPath| TraverseOneFolderUp | TraverseOneFolderUp | Write-Host
+#Entry
+SetDefaultPrintToOff
+GetScriptFullPath | TraverseUpTheFolderHierachy -levelsToTraveseUp 3
