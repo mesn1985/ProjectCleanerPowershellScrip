@@ -1,5 +1,5 @@
 param(
-    [Parameter()]
+    [Parameter(Mandatory)]
     [pscredential]$Credential
 )
 
@@ -8,6 +8,7 @@ $password = $Credential.Password
 
 Write-Host "username is $userName. Password is Encryptced $password"
 
+#Get unencrypted password
 $cred = $Credential.GetNetworkCredential()
 $userName = $cred.UserName
 $password = $cred.Password
