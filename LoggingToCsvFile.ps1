@@ -33,8 +33,6 @@ function logToCsvFile {
     $logObject | Export-Csv -Path $filePath -Append -NoTypeInformation
 }
 
-filter Out-Default {}
-
 #Entry
 $filepath = (Get-Location).ToString() + "\csvLogFile.csv"
 
