@@ -1,0 +1,4 @@
+1 - Create a folder to contain the module
+2 - Create a <ModuleName>.psm1 module file and add functions.
+3 - Create a <ModuleName>.psd1 file with manifest declaration
+4 - move the module to "Powershell\modules\" folder.
